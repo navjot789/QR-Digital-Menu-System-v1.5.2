@@ -1,27 +1,59 @@
+
   <div class="notice notice-sm">
         <strong>Date:</strong>
-        <?php
-       
-			echo date("d-M-Y h:i:sa");
-			
-        ?>
+      <?php
+								                   
+													 
+			 $date = ucwords(strftime("%a %d %B %Y", strtotime(date("d-M-Y"))));
+			 $time = ucwords(strftime("%X", strtotime(date("h:i:s"))));
+		     echo $date.' '.$time;
+									
+		?>
     </div>
- <div class="row" >
 
- 	<div class="col-md-3">
- 		 <div class="notice notice-success">
-	        <strong><i class="fas fa-cart-plus"></i>
-	        	<?php 	$stmt = $conn->prepare("SELECT productid FROM product");
+
+     <div class="notice notice-sm notice-warning">
+        <strong>Recent Reset applied on:</strong>
+      <?php
+								                   
+													 
+			 	$stmt = $conn->prepare("SELECT ctime FROM reset_counter");
                         $stmt->execute();
-                        $stmt->store_result();    
-                     	 echo  $stmt->num_rows;
+                        $stmt->store_result(); 
+                        $stmt->bind_result($ctime);   
+		                   $stmt->fetch();
+		                   $arr = array('ctime' =>$ctime);
+
+		                   echo  strftime("%a %d %B %Y %X", date(strtotime($arr['ctime'])));
+
                        	$stmt->close();
 
-       				?>
+       				
+									
+		?>
+		</br>
+        <small>Note: After apply reset, customer will no longer create temperory account for 5 mins.</small>
+    </div>
 
-	        </strong>Total Products</div>
- 	</div>
+ <div class="row" >
 
+ 	 <a href="dashboard.php?page=2">
+	 	<div class="col-md-3">
+	 		 <div class="notice notice-success">
+		        <strong><i class="fas fa-cart-plus"></i>
+		        	<?php 	$stmt = $conn->prepare("SELECT productid FROM product");
+	                        $stmt->execute();
+	                        $stmt->store_result();    
+	                     	 echo  $stmt->num_rows;
+	                       	$stmt->close();
+
+	       				?>
+
+		        </strong>Total Products</div>
+	 	</div>
+	 </a>
+
+ <a href="dashboard.php?page=3">
  	<div class="col-md-3">
  		 <div class="notice notice-danger">
 	        <strong><i class="fas fa-align-justify"></i>
@@ -35,6 +67,9 @@
        				?>
 	        </strong>Total Categories</div>
  	</div>
+ </a>
+
+  <a href="dashboard.php?page=5">
  	<div class="col-md-3">
  		 <div class="notice notice-info">
 	        <strong><i class="fas fa-chart-line"></i>
@@ -49,6 +84,9 @@
 
 	        </strong>Total Sales</div>
  	</div>
+ </a>
+
+  
  	<div class="col-md-3">
  		 <div class="notice notice-warning">
 	        <strong><i class="fas fa-users" ></i>
@@ -60,8 +98,12 @@
                        	$stmt->close();
 
        				?>
-	        </strong>Total Guests</div>
+	        </strong>Total Guests 
+	        <small style="float: right;line-height: 1px;color: red;" >
+	        	<a href="inc/curd/reset_guest.php?cmd=true" onclick="return confirm('Warning! This will let you delete all data of customers. Use this option only when there is no guest in the Restaurant. ');">RESET</a></small>
+	        </div>
  	</div>
+
 	 
 	 <div class="col-md-6">
  		 <div class="notice notice-success">
@@ -74,7 +116,14 @@
                        $stmt->execute();
                        $result = $stmt->get_result();
 					   $data = $result->fetch_assoc();
-					   echo $data['Amount'];
+					   if($data['Amount'] > 0)
+					   {
+					   	echo $data['Amount'];
+					   }else
+					   {
+					   	echo '0.00';
+					   }
+					   
 					   $stmt->close();
 
        				?>
@@ -94,7 +143,13 @@
                        $stmt->execute();
                        $result = $stmt->get_result();
 					   $data = $result->fetch_assoc();
-					   echo $data['Amount'];
+					   if($data['Amount'] > 0)
+					   {
+					   	echo $data['Amount'];
+					   }else
+					   {
+					   	echo '0.00';
+					   }
 					   $stmt->close();
 
        				?>

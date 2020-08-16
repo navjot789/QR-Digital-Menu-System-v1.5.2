@@ -112,8 +112,8 @@
                 <h3 class="text-center"><?php echo $row['productname']; ?></h3>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Sluit</button>
-                <a href="inc/curd/delete_product.php?product=<?php echo $row['productid']; ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>Ja</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+                <a href="inc/curd/delete_product.php?product=<?php echo $row['productid']; ?>&pic=<?php echo $row['photo']; ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>Confirm</a>
                 </form>
             </div>
         </div>

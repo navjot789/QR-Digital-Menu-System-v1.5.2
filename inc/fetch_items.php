@@ -20,7 +20,7 @@ include('config/config.php');
 									<div class="panel panel-default">
 										
 										<div class="panel-body">
-											<a href="view.php?p_id=<?php echo $pfrow['productid']; ?>"><img  src="<?php if(empty($pfrow['photo'])){echo "upload/noimage.jpg";} else{echo 'upload/'.$pfrow['photo'];} ?>" height="225px;" width="100%"></a>
+											<a href="view.php?p_id=<?php echo $pfrow['productid']; ?>"><img  src="<?php if(empty($pfrow['photo'])){echo "upload/noimage.jpg";} else{echo 'upload/'.$pfrow['photo'];} ?>" height="auto;"width="100%"></a>
 										</div>
 										<div class="panel-footer text-center">
 
@@ -54,12 +54,13 @@ include('config/config.php');
 												<div class="bottom-wrap">
 														<a href="view.php?p_id=<?php echo $pfrow['productid']; ?>" class="btn btn-sm btn-primary float-right"><i class="fas fa-eye"> </i></a>	
 														
-							<!--hidden values -->	
-							<input type="hidden" name="hidden_name" id="name<?php echo $pfrow["productid"];?>" value="<?php echo $pfrow["productname"];?>" />
-							<input type="hidden" name="hidden_price" id="price<?php echo $pfrow["productid"];?>" value="<?php echo $pfrow["price"];?>" />
-						    <input type="hidden" value="1" class="form-control" name="quantity" id="quantity<?php echo $pfrow["productid"];?>">
-							<button type="button" class="btn btn-success add_to_cart"  name="add_to_cart" id="<?php echo $pfrow['productid'];?>">
-							<i class="fas fa-plus" ></i></button>
+												<!--hidden values -->	
+												<input type="hidden" name="hidden_name" id="name<?php echo $pfrow["productid"];?>" value="<?php echo $pfrow["productname"];?>" />
+												<input type="hidden" name="hidden_price" id="price<?php echo $pfrow["productid"];?>" value="<?php echo $pfrow["price"];?>" />
+											    <input type="hidden" value="1" class="form-control" name="quantity" id="quantity<?php echo $pfrow["productid"];?>">
+											    
+												<a type="button" href="#popover_content_wrapper" class="btn btn-success add_to_cart btn-sm"  name="add_to_cart" id="<?php echo $pfrow['productid'];?>">
+												<i class="fas fa-plus" ></i></a>
 
 							
 													
@@ -105,7 +106,7 @@ include('config/config.php');
 									<div class="panel panel-default">
 									
 										<div class="panel-body">
-											<a href="view.php?p_id=<?php echo $prow['productid']; ?>"><img src="<?php if($prow['photo']==''){echo "upload/noimage.jpg";} else{echo 'upload/'.$prow['photo'];} ?>" height="225px;" width="100%"></a>
+											<a href="view.php?p_id=<?php echo $prow['productid']; ?>"><img src="<?php if($prow['photo']==''){echo "upload/noimage.jpg";} else{echo 'upload/'.$prow['photo'];} ?>" height="auto;" width="100%"></a>
 										</div>
 										<div class="panel-footer text-center">
 
@@ -127,7 +128,7 @@ include('config/config.php');
 
 																//if the string doesn't contain any space then it will cut without word basis.
 																$string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-																$string .= '... <a href="view.php?p_id='.$pfrow['productid'].'">Read More</a>';
+																$string .= '... <a href="view.php?p_id='.$prow['productid'].'">Read More</a>';
 															}
 															echo $string;
 															
@@ -139,11 +140,12 @@ include('config/config.php');
 													<div class="bottom-wrap">
 															<a href="view.php?p_id=<?php echo $prow['productid']; ?>" class="btn btn-sm btn-primary float-right"><i class="fas fa-eye"> </i></a>
 														<!--hidden values -->	
-							<input type="hidden" name="hidden_name" id="name<?php echo $prow["productid"];?>" value="<?php echo $prow["productname"];?>" />
-							<input type="hidden" name="hidden_price" id="price<?php echo $prow["productid"];?>" value="<?php echo $prow["price"];?>" />
-						    <input type="hidden" value="1" class="form-control" name="quantity" id="quantity<?php echo $prow["productid"];?>">
-							<button type="button" class="btn btn-success add_to_cart"  name="add_to_cart" id="<?php echo $prow['productid'];?>">
-							<i class="fas fa-plus" ></i></button>
+															<input type="hidden" name="hidden_name" id="name<?php echo $prow["productid"];?>" value="<?php echo $prow["productname"];?>" />
+															<input type="hidden" name="hidden_price" id="price<?php echo $prow["productid"];?>" value="<?php echo $prow["price"];?>" />
+														    <input type="hidden" value="1" class="form-control" name="quantity" id="quantity<?php echo $prow["productid"];?>">
+
+															<a type="button" href="#popover_content_wrapper"  class="btn btn-success add_to_cart btn-sm"  name="add_to_cart" id="<?php echo $prow['productid'];?>">
+															<i class="fas fa-plus" ></i></a>
 														
 
 															

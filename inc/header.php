@@ -2,18 +2,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>QRcode voor restaurants</title>
+	<title>QR Digital Menu System</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<meta http-equiv="Pragma" content="no-cache">
-	<meta http-equiv="Expires" content="-1">
-
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href="inc/css/search.css" rel="stylesheet">
     
 	<style type="text/css">
+		
+		html {
+		  scroll-behavior: smooth;
+		 }
+
 		.popover
 		{
 		    width: 100%;

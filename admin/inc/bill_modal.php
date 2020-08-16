@@ -17,11 +17,16 @@
                         <div class="col-md-6">
                          <span class="pull-right">
                             <?php
-							 
-							 	$date = date('M d, Y', strtotime($d_row['date_purchase']));
-								 $time = date('h:i A', strtotime($d_row['time_purchase']));
-								 echo $date.' '.$time;
-							 ?>
+                                                   
+                                                     //$date = date('M d, Y', strtotime($d_row['date_purchase']));
+                                                     //$time = date('h:i A', strtotime($d_row['time_purchase']));
+                                                     //echo $date.' '.$time;
+                                    
+                                                 $date = ucwords(strftime("%a %d %B %Y", strtotime($d_row['date_purchase'])));
+                                                 $time = ucwords(strftime("%X", strtotime($d_row['time_purchase'])));
+                                                 echo $date.' '.$time;
+                                    
+                                            ?>
                         </span>
                         </div>
 
@@ -38,18 +43,20 @@
                     <span class='text-danger'>More than 40 orders needs to confirm manually/verbally.</span> ":  $total);?></span>
 
                     <div class="table-responsive" style="margin-top:10px;">
-                    <table class="table table-bordered table-striped">
+                    <table class="table table-bordered table-striped" >
                         <thead>
+                        	<th>Order Prefrence</th>
                             <th>Product ID</th>
                             <th>Item</th>
-                            <th>Prijs</th>
-                            <th>Aantal</th>
-                            <th>Besteld op</th>
-                            <th>Subtotaal</th>
+                            <th>Pice</th>
+                            <th>Qty</th>
+                            <th>Date & Time</th>
+                            <th>Sub</th>
                         </thead>
                         <tbody>
                              <?php
                                 $total_price=0;
+                                $order_prefer = 1;
 
 
 
@@ -68,17 +75,22 @@
                                 while($drow=$dquery->fetch_array()){
                                     ?>
                                     <tr>
+                                    	<td><center><span class="badge badge-secondary text-center" style="background: #65cc0b;"><?php echo $order_prefer; ?></span></center></td>
                                         <td>#<?php echo $drow['productid']; ?></td>
                                         <td><?php echo $drow['productname']; ?></td>
                                         <td class="text-right">&euro; <?php echo $drow['price']; ?></td>
                                         <td><?php echo $drow['quantity']; ?></td>
-                                        <td><?php
-								
-											$date = date('M d, Y', strtotime($drow['date_purchase']));
-											$time = date('h:i A', strtotime($drow['time_purchase']));
-											echo $date.' '.$time;
-											
-											?></td>
+                                        <td> <?php
+                                                   
+                                                     //$date = date('M d, Y', strtotime($d_row['date_purchase']));
+                                                     //$time = date('h:i A', strtotime($d_row['time_purchase']));
+                                                     //echo $date.' '.$time;
+                                    
+                                                 $date = ucwords(strftime("%a %d %B %Y", strtotime($d_row['date_purchase'])));
+                                                 $time = ucwords(strftime("%X", strtotime($d_row['time_purchase'])));
+                                                 echo $date.' '.$time;
+                                    
+                                            ?></td>
                                         <td class="text-right text-success">&euro;
                                             <?php
                                                 $subt = $drow['price'] * floatval($drow['quantity']);
@@ -89,11 +101,13 @@
                                         </td>
                                     </tr>
                                     <?php
+
+                                    $order_prefer++;
                                     
                                 }
                             ?>
                             <tr>
-                                <td colspan="5" class="text-right"><b>Totaal</b></td>
+                                <td colspan="6" class="text-right"><b>Total</b></td>
                                 <td class="text-right  text-success">&euro; <?php echo number_format($total_price, 2); ?></td>
                             </tr>
                         </tbody>

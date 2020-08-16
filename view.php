@@ -1,3 +1,11 @@
+
+<?php 
+if(!file_exists('inc/config/db.inc.config.php')){
+	header('location:install/start.php');
+	die();
+}
+?>
+
 <?php include('inc/header.php'); ?>
 <body>
 <?php include('inc/navbar.php'); ?>
@@ -132,17 +140,31 @@ if(!empty($_GET['p_id']))
 
 <div class="container-fluid">
 
-	<!---cart item here------->	
-	<?php include('inc/cart_display.php'); ?>
-	<!---cart item here------->	
+	<div class="row">
+		<div class="col-md-8">
 
-		<div class="row">
+
+			<!---searched item here------->	
+			<div id="result"></div>
+			<!---searched item here------->	
+
+			<!---searched item here------->	
+			<div id="my_orders_result"></div>
+			<!---searched item here------->	
+
+
+
+		
+
+    <div class="content-wrapper" id="main_section">	
+
+    	<div class="row">
 					<div class="col-md-12">
-						<a href="index.php" class="btn btn-default"><i class="fas fa-arrow-circle-left" ></i> Back to home</a>
+						<a href="index.php" class="btn btn-default" style="border:none;"><i class="fas fa-arrow-circle-left" ></i> Back</a>
 					</div>
 				</div>
 
-    <div class="content-wrapper">	
+
 		<div class="item-container" >	
 			<div class="container">	
 
@@ -200,7 +222,7 @@ if(!empty($_GET['p_id']))
 										        		<span class="glyphicon glyphicon-minus"></span>
 										        	</button>
 										        </span>
-										        <input type="text" value="1" class="form-control" name="quantity" id="quantity<?php echo $row["productid"];?>">
+										        <input type="text" value="1" class="form-control" name="quantity" id="quantity<?php echo $row["productid"];?>" style="min-width: 50px;">
 
 										        <span class="input-group-btn">
 													<button class="btn btn-default value-control" data-action="plus" data-target="quantity<?php echo $row["productid"];?>">
@@ -395,9 +417,32 @@ if(!empty($_GET['p_id']))
 				</div>-->
 				<hr>
 			</div>
+
 		</div>
+
 	</div>
 </div>
+
+		</div>
+
+		<div class="col-md-4">
+
+
+			<!---cart item here------->	
+			<?php include('inc/cart_display.php'); ?>
+			<!---cart item here------->	
+
+
+		</div>
+
+	</div>
+
+	
+
+
+
+	
+<?php include "inc/footer.php";?>
 <?php
 }else
 {
@@ -405,17 +450,15 @@ if(!empty($_GET['p_id']))
 <div class="container-fluid">
 	
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6  col-md-offset-5">
             <div class="error-template">
                 <h1>
                     Oops!</h1>
                 <h2>
                     404 Not Found</h2>
-                <div class="error-details">
-                    Sorry, er is een fout opgetreden, de opgevraagde pagina bestaat niet!
-                </div>
+               
                 <div class="error-actions">
-                    <a href="index.php" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>Terug naar begin pagina</a>
+                    <a href="index.php" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span> Home</a>
                 </div>
             </div>
         </div>
@@ -425,4 +468,6 @@ if(!empty($_GET['p_id']))
 }
 ?>
 <?php include "inc/jquery.php";?>
+<?php include "inc/checkout_timer.php";?> 
+
 </body>

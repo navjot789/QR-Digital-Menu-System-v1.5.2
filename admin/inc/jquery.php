@@ -29,13 +29,23 @@
     table.buttons().container()
         .appendTo( '#example_wrapper .col-sm-6:eq(0)' );
 	
+     var bill = $('#bill').DataTable( {
+        lengthChange: false,
+        buttons: [ 'copy', 'excel', 'pdf', 'colvis' ],
+        columnDefs: [ { type: 'date', 'targets': [2] } ],
+        order: [[ 2, "desc" ]] 
+    } );
+ 
+    bill.buttons().container()
+        .appendTo( '#bill_wrapper .col-sm-6:eq(0)' );
+
+
 } );
 	
 $(document).ready(function() {
     var table = $('#sales').DataTable( {
         lengthChange: false,  
-		columnDefs: [ { type: 'date', 'targets': [3] } ],
-		order: [[ 3, "desc" ]] 
+		aaSorting: [[3, 'desc']]
     } );
  
 

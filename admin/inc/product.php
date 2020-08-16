@@ -41,11 +41,11 @@
 														?>
 														<tr>
 															<td><a href="<?php if(empty($row['photo']))
-																				 {echo "../upload/noimage.jpg";}
+																				 {echo "../img/noimage.jpg";}
 																				 else{ echo "../upload/".$row['photo']; } ?>">
 
 																	<img src="<?php if(empty($row['photo']))
-																					{echo "../upload/noimage.jpg";}
+																					{echo "../img/noimage.jpg";}
 																					 else{echo "../upload/".$row['photo'];} ?>" height="30px" width="40px">
 																</a></td>
 

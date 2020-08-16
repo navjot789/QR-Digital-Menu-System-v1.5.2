@@ -1,12 +1,15 @@
+<?php 
+if(!file_exists('inc/config/db.inc.config.php')){
+  header('location:install/start.php');
+  die();
+}
+?>
+
 <?php include('inc/header.php'); ?>
 <body>
   <?php include('inc/navbar.php'); ?>
 
-	 <div class="row">
-				  <div  class="col-md-12" style="padding: 20px;">
-				   <a href="index.php" class="btn btn-info"><i class="fas fa-arrow-circle-left" ></i> Back to home</a> 
-				  </div>
-			  </div>
+	 
 <?php 
    
    if(isset($_GET['er'])) 
@@ -16,8 +19,15 @@
       
 ?>
           <div class="jumbotron text-center">
+
+            <div class="row">
+              <div  class="col-md-12" style="padding: 20px;">
+               <a href="index.php" class="btn btn-info"><i class="fas fa-arrow-circle-left" ></i> Back</a> 
+              </div>
+            </div>
 			 
-                          <i class="fas fa-check-circle" style="font-size: 78px;color:#4bc14e;"></i>
+                          
+                          <img src="img/foodhand.png" class="img-responsive" style="margin-left: auto;margin-right: auto;width: auto;max-height: 300px; " />
                             <h1>Thank you for your order! <br/> <small>Your dish is being prepared.</small></h1>
                            
                             <small style="padding:10px;background:#ddd;color:#7f7f7f;border-radius:5px;">Temporary#<?php echo $_SESSION['CODE']; ?></small>
@@ -136,13 +146,11 @@
                               
 
                                  
-                            </ul>
-
-                        </ul>
-                        </div>
-                        
-                      </div>
-                    </div>
+                   
+                </div>
+                
+              </div>
+            </div>
 
 <?php
   } 
@@ -153,18 +161,16 @@
          
  <div class="jumbotron text-center">
                 <i class="fas fa-times-circle text-danger" style="font-size: 78px;"></i>
-                  <h1>Transactie status fout!</h1> 
+                  <h1>Transaction fail!</h1> 
                    <a href="index.php" class="btn btn-success"><i class="fas fa-arrow-circle-left" ></i>Terug</a> 
   </div>
 
   <?php
   }}?>
 
-      
-                                  
-     
-
+  
   
 <?php include "inc/jquery.php";?>
+<script type="text/javascript"> localStorage.removeItem('time');</script>
 </body>
 </html>

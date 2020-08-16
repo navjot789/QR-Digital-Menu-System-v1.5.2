@@ -19,14 +19,14 @@
 
 													<tr>
 														<td bgcolor="#ffffff" align="left" style="padding: 0px 30px 0px 30px; color: #666666; font-family:  Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-															<p style="margin: 0;">Login bij Adminstrator account om details te zien</p>
+															<p style="margin: 0;">Login to Adminstrator account to see full details of this order.</p>
 														</td>
 													</tr> <!-- COPY -->
 													<tr>
 														<td bgcolor="#ffffff" align="center" style="padding: 20px 30px 20px 30px; color: #666666; font-family:  Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
 															<p style="margin: 0;">
 
-															 <a href="https://denieuwehoreca.nl/smaak/admin/" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #4CAF50; text-decoration: none; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #4CAF50; display: inline-block;">Admin Login</a>
+															 <a href="'.$_SERVER['HTTP_HOST'].'/admin/" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #4CAF50; text-decoration: none; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #4CAF50; display: inline-block;">Admin Login</a>
 
 															</p>
 														</td>

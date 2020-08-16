@@ -2,10 +2,24 @@
 	include('../../../inc/config/config.php');
 
 	$id = $_GET['product'];
+	$pic = $_GET['pic'];
+//var_dump($_GET);
 
 	$sql="delete from product where productid='$id'";
-	$conn->query($sql);
+	
+	$res = $conn->query($sql);
 
-	header('location:../../dashboard.php?page=2');
+	 if($res)
+	 {
+	 	$deleted = unlink('../../../upload/'.$pic);
+	 	if($deleted)
+	 	{
+	 		header('location:../../dashboard.php?page=2');
+	 	}
+	 	
+
+	 }
+
 
 	?>
+	

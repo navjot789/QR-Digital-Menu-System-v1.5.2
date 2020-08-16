@@ -1,10 +1,11 @@
 <?php
 	include('../../../inc/config/config.php');
 
-	$pname=$_POST['pname'];
-	$price=$_POST['price'];
-	$category=$_POST['category'];
-	$old_price=$_POST['old_price'];
+
+	$pname=mysqli_real_escape_string($conn,$_POST['pname']);
+	$category=mysqli_real_escape_string($conn,$_POST['category']);
+	$price=mysqli_real_escape_string($conn,$_POST['price']);
+	//$old_price=$_POST['old_price'];
 	$desc= mysqli_real_escape_string($conn,$_POST['desc']);
 
 	$fileinfo=PATHINFO($_FILES["photo"]["name"]);
@@ -18,9 +19,15 @@
 	$location= $newFilename;
 	}
 	
-	$sql="insert into product (productname,description, categoryid, old_price, price, photo) values ('$pname','$desc', '$category','$old_price', '$price', '$location')";
-	$conn->query($sql);
+	$sql="insert into product(productname,description, categoryid, price, photo) values ('$pname','$desc', '$category', '$price', '$location')";
+	 $res = $conn->query($sql);
 
-	header('location:../../dashboard.php?page=2');
+	 if($res)
+	 {
+	 	header('location:../../dashboard.php?page=2');
+
+	 }
+
+	
 
 ?>

@@ -8,7 +8,7 @@ if(!isset($_SESSION["admin"])){
 else
 {
 ?>
-<body>
+<body >
 <?php include "inc/navbar.php";?>
 	<div class="container-fluid" style="max-width: 1140px;margin: 0 auto;">
 	  		
@@ -34,12 +34,35 @@ else
 
 							?>
 
-					
-							
-
 					</div>
 			</div>
 		</div>
+
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" onclick="javascript:window.location='dashboard.php?page=5'">&times;</button>
+        <h4 class="modal-title"><i class="fas fa-bell" ></i> Incomming Order!</h4>
+      </div>
+      <div class="modal-body">
+        <p>Find out the new order by: <a href="dashboard.php?page=5" class="text-info" >Click Here!</a></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="javascript:window.location='dashboard.php?page=5'">Take me there!</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
 		
 <audio id="playMusic" playcount="2">
 <source src="beep.mp3" type="audio/mpeg">
@@ -54,7 +77,7 @@ else
   	</div>
 
 <?php include "inc/jquery.php";?>
-<script type="text/javascript">
+<script type="text/javascript"> 
 $(function () {
   	$('.navbar-toggle-sidebar').click(function () {
   		$('.navbar-nav').toggleClass('slide-in');
@@ -81,13 +104,13 @@ $(function () {
 			}
 		});
 	});
+
 </script>
 		<?php 
           //adding script only when sales(5) tab load.
  if(isset($_GET['page']))
  {
-		  if($_GET['page']==5)
-		  {
+		 
 		?>
 <script type="text/javascript">
 			var old_count = 0;   
@@ -105,20 +128,17 @@ $(function () {
 							{old_count = data;} 
 							else
 							{
-
-								$(document).ready(function() {
+									$(document).ready(function() {
 										$("#playMusic").get(0).play();
 									});
 
-								setTimeout(function()
-										   {
-												if(confirm('Incomming new order placed.')){
-
-													window.location.reload();  
-												}
-
-											},1000);
-
+									$("#myModal").modal("show").on("shown", function () {
+									    window.setTimeout(function () {
+									        $("#myModal").modal("hide");									        
+									    }, 1000);
+									});
+							
+								
 
 							old_count = data;
 
@@ -127,7 +147,13 @@ $(function () {
 					} i=1;
 				}
 			});
-			},1000);
+			},500);
+
+				//disable the outer click for all modals
+	 		 $('[data-toggle="modal"]').each(function () {
+		       jQuery(this).attr('data-backdrop','static');
+		       jQuery(this).attr('data-keyboard','false');
+		    });
 
 		 //script for read unread the messages;
 		$(document).ready(function(){
@@ -154,7 +180,7 @@ $(function () {
 
 	
 	<?php
-		  } 
+		  
  }
  ?>
 

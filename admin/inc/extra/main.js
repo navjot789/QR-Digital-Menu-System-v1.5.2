@@ -35,4 +35,41 @@
 
 
 	});
+
+
+	$(document).on('click','#update_timer',function(event){
+	
+		var minutes = $("#minutes").val();
+	    var seconds = $("#seconds").val();
+	
+		$.ajax({
+			url:"inc/curd/timer_update.php",
+			method:"POST",
+			data:{"minutes":minutes, "seconds":seconds},
+			success:function(data){
+				
+				if(data != null && data.toLowerCase().includes("ok"))
+				{
+					$('#timer-msg-display').fadeIn().html('<span class="alert alert-success"  style="display:block;"><i class="fas fa-check-circle"></i> Timer updated</span>');
+					
+					setTimeout(function(){  
+						$('#timer-msg-display').fadeOut("slow");  
+					}, 3000);
+				}
+				else
+				{
+					$('#timer-msg-display').fadeIn().html('<span class="alert alert-danger" style="display:block;"><i class="fas fa-times-circle"></i> '+ data +'</span>');
+
+					setTimeout(function(){  
+						$('#timer-msg-display').fadeOut("slow");  
+					}, 3000);
+				}
+				
+				
+			}
+		});
+
+	event.preventDefault();
+
+	});
 	

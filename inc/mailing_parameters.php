@@ -9,7 +9,7 @@ require './src/SMTP.php';
 
 $mails = new PHPMailer;
 $mails->isSMTP();
-$mail->SMTPDebug = 2;//https://github.com/PHPMailer/PHPMailer/wiki/SMTP-Debugging
+$mail->SMTPDebug = 0;//https://github.com/PHPMailer/PHPMailer/wiki/SMTP-Debugging
 $mails->Host = 'denieuwehoreca.nl';
 $mails->Port = 587;
 $mails->SMTPAuth = true;
@@ -20,11 +20,11 @@ $mails->SMTPOptions = array(
 							'verify_peer_name' => false,
 							'allow_self_signed' => true
 							));
-$mails->Username = 'africa@denieuwehoreca.nl';
-$mails->Password = 'nDy2q4$7';
+$mails->Username = 'billy@denieuwehoreca.nl';
+$mails->Password = 'cSnn5#54';
 
-$mails->setFrom('africa@denieuwehoreca.nl');
-$mails->addReplyTo('africa@denieuwehoreca.nl');
-$mails->addAddress('ns949405@gmail.com');
+$mails->setFrom('billy@denieuwehoreca.nl');
+$mails->addReplyTo('billy@denieuwehoreca.nl');
+$mails->addAddress('web.dev.nav@gmail.com');
 
 ?>

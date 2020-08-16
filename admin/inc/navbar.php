@@ -25,7 +25,7 @@
         <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="http://navbro.online" target="_blank"><i class="fas fa-phone-alt"></i> Contact</a></li>
+        <li><a href="http://navbro.online" target="_blank"><i class="fas fa-phone-alt"></i> Support</a></li>
         <li><div class="display"></div></li>
         <li class="dropdown ">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
