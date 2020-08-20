@@ -69,6 +69,7 @@ include('inc/header.php');
 									}
 								?>
 							</ul>
+
 					<!---content render here------->
 						<div class="tab-content" id="display_item"></div>
 					<!---content render here------->
@@ -165,9 +166,6 @@ include('inc/header.php');
 		</div>
 	</div>
 </div>
-
-
-
 
 
 

@@ -241,8 +241,9 @@ if(!empty($_GET['p_id']))
 
 					<hr>
 					<div class="btn-group cart">
-						<button type="button" class="btn btn-success add_to_cart"  name="add_to_cart" id="<?php echo $row['productid'];?>">
-							<span class="glyphicon glyphicon-shopping-cart"></span> Add to cart</button>
+						
+							<a type="button" href="#popover_content_wrapper" class="btn btn-success add_to_cart btn-sm"  name="add_to_cart" id="<?php echo $row['productid'];?>">
+												<i class="fas fa-plus" ></i> Add to cart</a>
 						
 					</div>
 
