@@ -40,6 +40,7 @@
 		$database_name 		= isset($_POST['database_name']) ? prepare_input($_POST['database_name']) : '';
 		$database_username	= isset($_POST['database_username']) ? prepare_input($_POST['database_username']) : '';
 		$database_password	= isset($_POST['database_password']) ? prepare_input($_POST['database_password']) : '';
+		$usertimezone	    = isset($_POST['userTimeZone']) ? prepare_input($_POST['userTimeZone']) : '';
 		$database_prefix	= isset($_POST['database_prefix']) ? prepare_input($_POST['database_prefix']) : '';	
 		$install_type		= isset($_POST['install_type']) ? prepare_input($_POST['install_type']) : 'create';
 		
@@ -88,6 +89,8 @@
 				$_SESSION['database_name'] = $database_name;
 				$_SESSION['database_username'] = $database_username;
 				$_SESSION['database_password'] = $database_password;
+				$_SESSION['userTimeZone'] = $usertimezone;
+
 				$_SESSION['database_prefix'] = $database_prefix;
 				$_SESSION['install_type'] = $install_type;
 
@@ -107,6 +110,7 @@
 		$database_name 		= isset($_SESSION['database_name']) ? $_SESSION['database_name'] : '';
 		$database_username	= isset($_SESSION['database_username']) ? $_SESSION['database_username'] : '';
 		$database_password	= isset($_SESSION['database_password']) ? $_SESSION['database_password'] : '';
+		$usertimezone       = isset($_SESSION['userTimeZone']) ? $_SESSION['userTimeZone'] : '';
 		$database_prefix	= isset($_SESSION['database_prefix']) ? $_SESSION['database_prefix'] : '';
 		$install_type		= isset($_SESSION['install_type']) ? $_SESSION['install_type'] : 'create';		
 	} 
@@ -203,6 +207,12 @@
 						<h4><?php echo lang_key('database_password'); ?></h4>
 						<p><?php echo lang_key('database_password_info'); ?></p>
 					</div>
+
+					<div id="notes_db_user_timezone" class="notes_container">
+						<h4><?php echo lang_key('database_timezone'); ?></h4>
+						<p><?php echo lang_key('database_timezone_info'); ?></p>
+					</div>
+
 					<div id="notes_db_prefix" class="notes_container">
 						<h4><?php echo lang_key('database_prefix'); ?></h4>
 						<p><?php echo lang_key('database_prefix_info'); ?></p>
@@ -229,6 +239,36 @@
 					<input type="password" class="form_text" name="database_password" id="database_password" size="30" value="<?php echo $database_password; ?>" <?php if(EI_MODE != 'debug') echo 'autocomplete="off"'; ?> placeholder="<?php if(EI_MODE == 'demo') echo 'demo: test'; ?>" onfocus="textboxOnFocus('notes_db_password')" onblur="textboxOnBlur('notes_db_password')" />
 				</td>
 			</tr>
+
+			<tr>
+				<td nowrap>&nbsp;<?php echo lang_key('database_timezone'); ?>:</td>
+				<td>
+					<?php
+
+						$utc = new DateTimeZone('UTC');
+						$dt = new DateTime('now', $utc);
+					?>
+
+						<select name="userTimeZone" class="form_text"  style="width: 228px;"  <?php if(EI_MODE != 'debug') echo 'autocomplete="off"'; ?> placeholder="<?php if(EI_MODE == 'demo') echo 'demo: test'; ?>" onfocus="textboxOnFocus('notes_db_user_timezone')" onblur="textboxOnBlur('notes_db_user_timezone')">
+					<?php
+
+						foreach(DateTimeZone::listIdentifiers() as $tz) {
+						    $current_tz = new DateTimeZone($tz);
+						    $offset =  $current_tz->getOffset($dt);
+						    $transition =  $current_tz->getTransitions($dt->getTimestamp(), $dt->getTimestamp());
+						    $abbr = $transition[0]['abbr'];
+
+						    echo '<option value="' .$tz. '">' .$tz. ' [' .$abbr. ' '. formatOffset($offset). ']</option>';
+						}
+						echo '</select>';
+
+						?>
+
+					
+				</td>
+			</tr>
+
+
 			<!--<tr>
 				<td nowrap>&nbsp;<?php echo lang_key('database_prefix'); ?></td>
 				<td>

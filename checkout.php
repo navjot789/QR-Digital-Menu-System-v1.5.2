@@ -171,6 +171,6 @@ if(!file_exists('inc/config/db.inc.config.php')){
   
   
 <?php include "inc/jquery.php";?>
-<script type="text/javascript"> localStorage.removeItem('time');</script>
+<?php include "inc/checkout_timer.php";?>
 </body>
 </html>

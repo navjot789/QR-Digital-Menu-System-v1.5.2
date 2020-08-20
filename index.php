@@ -140,7 +140,7 @@ include('inc/header.php');
 							      </div>
 							      <div class="modal-footer">
 							        <p id="response" class="pull-left" style="margin-top: 5px;"></p>	
-							        <button type="button" class="btn btn-primary" id="session_start">Start session</button>
+							        <button type="button" class="btn btn-primary" id="session_start">Start session <i class="fas fa-chevron-right" ></i></button>
 							      </div>
 							    </div>
 							  </div>

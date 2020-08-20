@@ -67,6 +67,9 @@ $arrLang['database_password'] = "Database Password";
 $arrLang['database_password_info'] = "Database password. The password is used together with the username, which forms the database user account.";
 $arrLang['database_prefix'] = "Database Prefix (optional)";
 $arrLang['database_prefix_info'] = "Database prefix. Used to set the unique prefix for database tables and prevent one type of data from interfering with another. An example of database prefix is 'abc_'.";
+$arrLang['database_timezone'] = "Time zone";
+$arrLang['database_timezone_info'] = "Time zone. Setting up timezone will refect all date and times in the system of your current geographical location.";
+
 $arrLang['database_settings'] = "Database Settings";
 $arrLang['directories_and_files'] = "Directories and Files";
 $arrLang['disabled'] = "disabled";

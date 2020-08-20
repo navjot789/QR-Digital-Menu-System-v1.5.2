@@ -63,9 +63,11 @@ $output = '';
 
                                                      <?php
                                    
-                             $date = ucwords(strftime("%a %d %B %Y", strtotime($json['date'])));
-                             $time = ucwords(strftime("%X", strtotime($json['time'])));
-                               echo $date.' '.$time;
+                                                    
+                                                          $date = ucwords(strftime("%a %d %B %Y", strtotime($json['date'])));
+                                                          $time = ucwords(strftime("%X", strtotime($json['time'])));
+                                                             echo $date.' '.$time;
+                                                        
                   
                           ?>  
                                                     </td>

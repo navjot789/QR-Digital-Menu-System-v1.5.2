@@ -51,7 +51,7 @@
 	                     }   }                   	
 						$stmt->close();
   ?>
-</br></br>
+</br>
  <div class="alert alert-info" role="alert">
   <i class="fas fa-info-circle" ></i> info: Sales tab allow us to see each single ordered, by your customers. here you can manage each individual order by clicking detail button. 
 </div>

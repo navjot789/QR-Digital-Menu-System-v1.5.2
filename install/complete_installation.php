@@ -40,6 +40,7 @@
 		$database_name		 = isset($_SESSION['database_name']) ? prepare_input($_SESSION['database_name']) : '';
 		$database_username	 = isset($_SESSION['database_username']) ? prepare_input($_SESSION['database_username']) : '';
 		$database_password	 = isset($_SESSION['database_password']) ? prepare_input($_SESSION['database_password']) : '';
+		$usertimezone	     = isset($_SESSION['userTimeZone']) ? prepare_input($_SESSION['userTimeZone']) : '';
 		$database_prefix     = isset($_SESSION['database_prefix']) ? stripslashes($_SESSION['database_prefix']) : '';
 		$install_type		 = isset($_SESSION['install_type']) ? $_SESSION['install_type'] : 'create';
 		
@@ -98,6 +99,8 @@
 								$config_file = str_replace('<DB_NAME>', $database_name, $config_file);
 								$config_file = str_replace('<DB_USER>', $database_username, $config_file);
 								$config_file = str_replace('<DB_PASSWORD>', $database_password, $config_file);
+								
+								$config_file = str_replace('<TIME_ZONE>', $usertimezone, $config_file);
 								$config_file = str_replace('<DB_PREFIX>', $database_prefix, $config_file);
 								
 								if(EI_USE_ADMIN_ACCOUNT){

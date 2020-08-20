@@ -8,6 +8,6 @@
                                          <a href="mailto:web.dev.nav@gmail.com">
                                              Mail )
                                         </a>
-	V1.0.0
+	V1.5.0
 		  			</p>
 </footer>
