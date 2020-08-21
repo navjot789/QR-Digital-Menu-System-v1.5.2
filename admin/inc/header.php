@@ -53,9 +53,7 @@
 
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<meta http-equiv="Pragma" content="no-cache">
-	<meta http-equiv="Expires" content="-1">
+	<link rel="icon" type="image/png" href="https://img.icons8.com/fluent/48/000000/data-configuration.png"/>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 	
 	<link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css" rel="stylesheet">

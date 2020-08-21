@@ -147,4 +147,4 @@ else
 <?php include "jquery.php";?>
 
 <script type="text/javascript"> //localStorage.removeItem('firstTime');</script>
-<?php include "inc/checkout_timer.php";?>
+<?php include "checkout_timer.php";?>

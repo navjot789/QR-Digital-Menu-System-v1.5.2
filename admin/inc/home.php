@@ -1,4 +1,37 @@
 
+  <?php 	
+						$stmt = $conn->prepare("SELECT gid FROM guest");
+                        $stmt->execute();
+                        $stmt->store_result();  
+
+	                     if($stmt->num_rows > 0)
+	                     {
+                            //No reset apply
+	                     } else {
+							//reset apply
+
+							$stmt = $conn->prepare("SELECT purchaseid FROM purchase");
+	                        $stmt->execute();
+	                        $stmt->store_result();
+
+	                       if($stmt->num_rows > 0)
+	                       {
+
+
+
+	?>	                     <div class="alert alert-warning" role="alert">
+							  <i class="fas fa-exclamation-triangle" ></i> Warning! Reset has been applied. Please delete the old data in sales tab.
+							</div>
+
+						
+<?php
+	                     }   
+	                 }                   	
+						$stmt->close();
+  ?>
+
+
+
   <div class="notice notice-sm">
         <strong>Date:</strong>
       <?php

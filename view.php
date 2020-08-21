@@ -170,7 +170,7 @@ if(!empty($_GET['p_id']))
 
 			
 
-				<div class="col-md-4" style="margin-top: 20px;">
+				<div class="col-md-7" style="margin-top: 20px;">
 
 					<?php
 
@@ -198,7 +198,7 @@ if(!empty($_GET['p_id']))
 				
 				</div>
 			
-				<div class="col-md-6 " style="margin-top: 20px;">
+				<div class="col-md-5 " style="margin-top: 20px;">
 					<p class="product-title"><h2 class="text-muted"><?php echo $row['productname'];?></h2></p>
 					<?php
 						$sql="select * from category where categoryid='".$row['categoryid']."'";

@@ -8,7 +8,7 @@ $(document).ready(function(){
                        method:"POST",  
                        data:$('#session_modal').serialize(),  
                        beforeSend:function(){  
-                            $('#response').html('<span class="text-info"><i class="fas fa-spinner"></i> Loading...</span>');  
+                            $('#response').html('<span class="text-info"><i class="fas fa-circle-notch fa-spin" ></i> Loading...</span>');  
                        },  
                        success:function(data){
 
