@@ -7,24 +7,33 @@ require './src/PHPMailer.php';
 require './src/SMTP.php';
 
 
-$mails = new PHPMailer;
-$mails->isSMTP();
-$mail->SMTPDebug = 0;//https://github.com/PHPMailer/PHPMailer/wiki/SMTP-Debugging
-$mails->Host = 'denieuwehoreca.nl';
-$mails->Port = 587;
-$mails->SMTPAuth = true;
-$mails->SMTPSecure = 'tls';
-$mails->SMTPOptions = array(
-							'ssl' => array(
-							'verify_peer' => false,
-							'verify_peer_name' => false,
-							'allow_self_signed' => true
-							));
-$mails->Username = 'billy@denieuwehoreca.nl';
-$mails->Password = 'cSnn5#54';
+$sql="SELECT * from mailing";
+$dquery=$conn->query($sql);
+$toogle =$dquery->fetch_array();
+					
+if($toogle)
+{
+	$mails = new PHPMailer;
+	$mails->isSMTP();
+	$mail->SMTPDebug = 0;//https://github.com/PHPMailer/PHPMailer/wiki/SMTP-Debugging
+	$mails->Host = $toogle['host'];
+	$mails->Port = 587;
+	$mails->SMTPAuth = true;
+	$mails->SMTPSecure = 'tls';
+	$mails->SMTPOptions = array(
+								'ssl' => array(
+								'verify_peer' => false,
+								'verify_peer_name' => false,
+								'allow_self_signed' => true
+								));
+	$mails->Username = $toogle['user_name'];
+	$mails->Password = $toogle['pass_word'];
 
-$mails->setFrom('billy@denieuwehoreca.nl');
-$mails->addReplyTo('billy@denieuwehoreca.nl');
-$mails->addAddress('web.dev.nav@gmail.com');
+	$mails->setFrom($toogle['setFrom']);
+	$mails->addReplyTo($toogle['setFrom']);
+	$mails->addAddress($toogle['addAddress']);
+}
+
+
 
 ?>

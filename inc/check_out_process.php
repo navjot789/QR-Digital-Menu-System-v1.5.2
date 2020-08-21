@@ -102,9 +102,18 @@ if($reset->fetch())
 						          //include email template parts
 							      include "src/order_send/part_3.php";
 							     
-							      $mails->msgHTML($body);
-								  $mails->Subject = 'New order arrived';
-								  $mails->send(); //echo 'error: ' . $mail->ErrorInfo;
+
+							     $status_query ="SELECT status from mailing";
+								 $sq=$conn->query($status_query);
+								 $main_result =$sq->fetch_array();
+
+							     if(isset($main_result['status']) && $main_result['status']=='ON') 
+							     {
+							     	  $mails->msgHTML($body);
+									  $mails->Subject = 'New order arrived';
+									  $mails->send(); //echo 'error: ' . $mail->ErrorInfo;
+							     }
+							      
 								
 						      
 						}

@@ -127,3 +127,25 @@ CREATE TABLE IF NOT EXISTS `reset_counter` (
 INSERT INTO `reset_counter` (`rid`, `status`, `ctime`) VALUES
 (5, 1, '15-08-2020 17:05:27');
 COMMIT;
+
+--
+-- Table structure for table `mailing`
+--
+
+DROP TABLE IF EXISTS `mailing`;
+CREATE TABLE IF NOT EXISTS `mailing` (
+  `host` varchar(30) DEFAULT NULL,
+  `user_name` varchar(30) DEFAULT NULL,
+  `pass_word` varchar(30) DEFAULT NULL,
+  `setFrom` varchar(30) DEFAULT NULL,
+  `addAddress` varchar(30) DEFAULT NULL,
+  `status` varchar(5) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mailing`
+--
+
+INSERT INTO `mailing` (`host`, `user_name`, `pass_word`, `setFrom`, `addAddress`, `status`) VALUES
+('', '', '', '', '', '');
+COMMIT;

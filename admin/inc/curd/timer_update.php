@@ -2,7 +2,7 @@
 //var_dump($_POST);
 include('../../../inc/config/config.php');
 
-	var_dump($_POST);
+	//var_dump($_POST);
 	 $minutes = mysqli_real_escape_string($conn,$_POST['minutes']);
 	 $seconds = mysqli_real_escape_string($conn,$_POST['seconds']);
 

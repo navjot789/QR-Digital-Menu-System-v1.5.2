@@ -1,4 +1,12 @@
-<?php include "inc/header.php";?>
+<?php
+include "inc/header.php";
+
+if (!file_exists('../inc/config/db.inc.config.php'))
+ {
+       header("location:../install/start.php");
+      exit();
+  }
+?>
 <?php
 // Check if the user is already logged in, if yes then redirect him to MYPROFILE page
 if(!isset($_SESSION["admin"])){
