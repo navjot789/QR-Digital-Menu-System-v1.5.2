@@ -6,6 +6,7 @@ include('config/config.php');
 			$fquery=$conn->query($sql);
 			$ftrow=$fquery->fetch_array();
 			?>
+
 				<div id="<?php echo $ftrow['categoryid']; ?>" class="tab-pane fade in active" style="margin-top:20px;">
 					<?php
 

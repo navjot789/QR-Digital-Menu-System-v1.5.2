@@ -4,13 +4,14 @@
 		  				<hr class="divider">
 
 		  				  Developed by
-                                        <a href="http://navbro.online" target="_blank">
+                                        <a href="<?php echo AUTHOR_FOOTER_URL; ?>" target="_blank">
                                              Navbro
                                         </a>|
-                                         <a href="mailto:web.dev.nav@gmail.com">
+                                         <a href="mailto:<?php echo AUTHOR_FOOTER_MAIL; ?>">
                                              Mail
                                         </a>
-<div id="google_translate_element"></div>
+                                        <?php echo APP_V; ?>
+							<div id="google_translate_element"></div>
 		  			</p>
 	</footer>
 </center>

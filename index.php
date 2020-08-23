@@ -71,7 +71,12 @@ include('inc/header.php');
 							</ul>
 
 					<!---content render here------->
-						<div class="tab-content" id="display_item"></div>
+						<!---content before ajax loader------->
+							<div class="col-md-12 col-md-offset-5 col-xs-12  col-xs-offset-4" >
+								<img id="fetching_items"  src="img/loader.gif" style="height:100px;width:100px;display:none;"/>
+							</div>
+						<!---content before ajax loader------->
+						    <div class="tab-content" id="display_item"></div>
 					<!---content render here------->
 
 					</div>

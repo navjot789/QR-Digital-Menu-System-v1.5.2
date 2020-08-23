@@ -172,5 +172,8 @@ if(!file_exists('inc/config/db.inc.config.php')){
   
 <?php include "inc/jquery.php";?>
 <?php include "inc/checkout_timer.php";?>
+<script type="text/javascript">// localStorage.removeItem('firstTime');</script>
+
+
 </body>
 </html>

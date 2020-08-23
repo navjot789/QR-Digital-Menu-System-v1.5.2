@@ -149,12 +149,15 @@
     // *** application name
     define('EI_APPLICATION_NAME', 'QR Digital Menu System');
     // *** version number of your application 
-    define('EI_APPLICATION_VERSION', 'v1.5');
+    define('EI_APPLICATION_VERSION', 'v1.5.2');
     
     // *** default start file name - application start file
     define('EI_APPLICATION_START_FILE', 'index.php');
     
     // *** additional text after successful installation
     define('EI_POST_INSTALLATION_TEXT', '');
+
+   
+
     
 ?>

@@ -18,12 +18,11 @@
 	  
 	    localStorage.setItem('firstTime', true); //Set first time entry
   
-        disableForFirst(<?php echo $row['mins'];?>, <?php echo $row['secs']; ?>); 
+        firstdisable_call(<?php echo $row['mins'];?>, <?php echo $row['secs']; ?>); 
 
-        setTimeout(function(){
-		   window.location.href = 'inc/check_out_process.php'; //Redirect to thank you page.
-		},100);
-  	
+		setInterval(function() {  window.location.href = 'inc/check_out_process.php'; },2000); //setting time delay of 2 second so that time set in localstorage.
+       
+
 	  }else{ //when clicked second time
 
 	  	   //Disable for 10 seconds if its not a first time.
@@ -36,69 +35,71 @@
 <script type="text/javascript">
 	
 
-   function disableForFirst(mins = null, secs = null) 
+   function firstdisable_call(mins = null, secs = null) 
    {
-		 	  var i = [],
-		      play = [];
-		      var selector = $("#check_out_cart"),
-		      inDex = $(selector).index(),
-		      prevText = $("#timer").text();
-		      i[inDex] = 0;
+		 	
 
-		  
-		  //Store seconds
-		  var inSeconds = mins * 60 + secs;
+    var i = [],
+      play = [];
+    var selector = $("#check_out_cart"),
+      inDex = $(selector).index(),
+      prevText = $("#timer").text();
+    i[inDex] = 0;
 
-		  //Get the previous stored seconds - check local storage
-		  var retrievedObject = localStorage.getItem('time');
-		  if (retrievedObject) {
-		    inSeconds = retrievedObject;
-		  }
+  //Store seconds
+  var inSeconds = mins * 60 + secs;
 
-		  //Disable button
-		  $(selector).prop('disabled', true);
+  //Get the previous stored seconds - check local storage
+  var retrievedObject = localStorage.getItem('time');
+  if (retrievedObject) {
+    inSeconds = retrievedObject;
+  }
 
-		  play[inDex] = setInterval(function() {
-		    if (inSeconds > 60) {
-		      localStorage.setItem('time', inSeconds); //Set time again
-		      inSeconds = inSeconds - 1;
-		      var minutes = Math.floor(inSeconds / 60);
-		      var seconds = inSeconds % 60;
-		      if (minutes >= 1) {
-		        if (seconds.toString().length > 1) {
-		          $('#timer').html("<i class='fas fa-clock' ></i> " + minutes + ":" + seconds + " minutes left");
-		        } else {
-		          $('#timer').html("<i class='fas fa-clock' ></i> " + minutes + ":" + "0" + seconds + " minutes left");
-		        }
-		      } else {
-		        $('#timer').html("<i class='fas fa-clock' ></i> " + seconds + " seconds left");
-		      }
-		    } else {
-		      localStorage.setItem('time', inSeconds); //Set time again
-		      if (inSeconds > 1) {
-		        inSeconds = inSeconds - 1;
-		        if (inSeconds.toString().length > 1) {
-		          $('#timer').html("<i class='fas fa-clock' ></i> " + inSeconds + " seconds left");
-		        } else {
-		          $('#timer').html("<i class='fas fa-clock' ></i> " + "0" + inSeconds + " seconds left");
-		        }
-		      } else {
-		        //window.location.href = 'inc/check_out_process.php'; //Redirect to thank you page.
-		        $(selector).prop("disabled", false);
-		        clearInterval(play[inDex]);
-		        $('#timer').html(prevText);
-		      }
-		    }
-		  }, 1000);
+  //Disable button
+  $(selector).prop('disabled', true);
 
+  play[inDex] = setInterval(function() {
+    if (inSeconds > 60) {
+      localStorage.setItem('time', inSeconds); //Set time again
+      inSeconds = inSeconds - 1;
+      var minutes = Math.floor(inSeconds / 60);
+      var seconds = inSeconds % 60;
+      if (minutes >= 1) {
+        if (seconds.toString().length > 1) {
+          $('#timer').html("<i class='fas fa-clock' ></i> " + minutes + ":" + seconds + " minutes left");
+        } else {
+          $('#timer').html("<i class='fas fa-clock' ></i> " + minutes + ":" + "0" + seconds + " minutes left");
+        }
+      } else {
+        $('#timer').html("<i class='fas fa-clock' ></i> " + seconds + " seconds left");
+      }
+    } else {
+      localStorage.setItem('time', inSeconds); //Set time again
+      if (inSeconds > 1) {
+        inSeconds = inSeconds - 1;
+        if (inSeconds.toString().length > 1) {
+          $('#timer').html("<i class='fas fa-clock' ></i> " + inSeconds + " seconds left");
+        } else {
+          $('#timer').html("<i class='fas fa-clock' ></i> " + "0" + inSeconds + " seconds left");
+        }
+      } else {
+
+        $(selector).prop("disabled", false);
+        clearInterval(play[inDex]);
+        $('#timer').html("<i class='fas fa-check-circle' ></i> "+prevText);
+
+      }
+    }
+  }, 1000);
 }
 
-
+ 
+		      
 //Disable checkout function
 function disableFor(mins = null, secs = null)
  {
 
-  
+ 
     var i = [],
       play = [];
     var selector = $("#check_out_cart"),
@@ -146,7 +147,7 @@ function disableFor(mins = null, secs = null)
         //window.location.href = 'inc/check_out_process.php'; //Redirect to thank you page.
         $(selector).prop("disabled", false);
         clearInterval(play[inDex]);
-        $('#timer').html(prevText);
+        $('#timer').html("<i class='fas fa-check-circle' ></i> "+prevText);
         localStorage.removeItem('firstTime');
         localStorage.removeItem('time');
       }
@@ -161,11 +162,9 @@ $(function() {
   var retrievedObject = localStorage.getItem('time');
   if (retrievedObject) {
     //Check previous timer - if page reloaded.
-    disableForFirst();
+    firstdisable_call();
     disableFor();
   }
 });
-
-//NOTE: WE REMOVE THE localStorage.removeItem('time') ON CHECKOUT.PHP page once order has been placed. this way page stop reloading  
 	
 </script>

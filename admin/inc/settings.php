@@ -25,6 +25,7 @@
 		            <div class="row">
 		                <div class="col-md-12 col-md-offset-2">
 		                    <form id="up_user_pass_form" method="post">
+		                    	<p><pre class="text-success"><strong>Note:</strong> After updating the admin credentials please use TXT encryption</br>type to login.</pre></p></br>
                               <div class="form-group row">
                                 <label for="username" class="col-4 col-form-label">Username</label> 
                                 <div class="col-md-12">
@@ -51,9 +52,13 @@
                                   <button id="update" type="submit" class="btn btn-primary pull-right"><i class="fas fa-pen-square"></i> Update</button>
                                 </div>
                               </div>
+
+
                             </form>
 		                </div>
 		            </div>
+
+
 					
 					
 				 <br/><br/>

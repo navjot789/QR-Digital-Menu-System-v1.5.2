@@ -10,9 +10,13 @@ $(document).ready(function(){
 		$.ajax({
 			url:"inc/fetch_items.php",
 			method:"POST",
+			 beforeSend:function(){  
+				 $('#fetching_items').show();  
+			 },  
 			success:function(data)
 			{
 				$('#display_item').html(data);
+				$('#fetching_items').hide();  
 			}
 		});
 

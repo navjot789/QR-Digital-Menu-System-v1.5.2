@@ -109,9 +109,24 @@ if($reset->fetch())
 
 							     if(isset($main_result['status']) && $main_result['status']=='ON') 
 							     {
-							     	  $mails->msgHTML($body);
-									  $mails->Subject = 'New order arrived';
-									  $mails->send(); //echo 'error: ' . $mail->ErrorInfo;
+							     	   if(isset($main_result['host']) && $main_result['host'] !=='' ||
+							     		  isset($main_result['user_name']) && $main_result['user_name'] !=='' ||
+							     		  isset($main_result['pass_word']) && $main_result['pass_word'] !=='' ||
+									      isset($main_result['setFrom']) && $main_result['setFrom'] !=='' ||
+									      isset($main_result['addAddress']) && $main_result['addAddress'] !=='') 
+									     {
+											  $mails->msgHTML($body);
+											  $mails->Subject = 'Incomming order';
+											  $mails->send(); //echo 'error: ' . $mail->ErrorInfo;
+									     }else
+									     {
+									     	echo '<div class="alert alert-danger" role="alert">
+												    No SMPT details found on sever. double check the SMTP details.
+												 </div>';
+									     }
+
+
+							     	  
 							     }
 							      
 								
@@ -152,8 +167,7 @@ else
 	</div>
 </div>
 
-  
-<?php include "jquery.php";?>
+<?php include "inc/jquery.php";?>
+<?php include "inc/checkout_timer.php";?>
 
-<script type="text/javascript"> //localStorage.removeItem('firstTime');</script>
-<?php include "checkout_timer.php";?>
+
