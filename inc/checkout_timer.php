@@ -18,9 +18,17 @@
 	  
 	    localStorage.setItem('firstTime', true); //Set first time entry
   
-        firstdisable_call(<?php echo $row['mins'];?>, <?php echo $row['secs']; ?>); 
+      firstdisable_call(<?php echo $row['mins'];?>, <?php echo $row['secs']; ?>); 
 
-		setInterval(function() {  window.location.href = 'inc/check_out_process.php'; },2000); //setting time delay of 2 second so that time set in localstorage.
+		  //setting time delay of 2 second so that time set in localstorage.
+
+     window.setTimeout(function(){
+
+        // Move to a new location or you can do something else
+        window.location.href = 'inc/check_out_process.php'; 
+
+      }, 2000);
+
        
 
 	  }else{ //when clicked second time
@@ -57,7 +65,7 @@
 
   //Disable button
   $(selector).prop('disabled', true);
-
+  
   play[inDex] = setInterval(function() {
     if (inSeconds > 60) {
       localStorage.setItem('time', inSeconds); //Set time again
