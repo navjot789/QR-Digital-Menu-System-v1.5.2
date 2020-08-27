@@ -22,7 +22,7 @@ $(document).ready(function(){
                                 else
                                 {
 
-								              $('#response').fadeIn().html('<span class="alert alert-danger"><i class="fas fa-exclamation-triangle"></i> '+data+'</span>');  
+								              $('#response').fadeIn().html('<span class="alert alert-danger" style="display:block;"><i class="fas fa-exclamation-triangle"></i> '+data+'</span>');  
                                      // $('<span class="alert alert-danger"><i class="fas fa-exclamation-triangle"></i>'+data+'</span>').fadeIn().appendTo('#response');
                                     setTimeout(function(){  
                                          $('#response').fadeOut("slow");  

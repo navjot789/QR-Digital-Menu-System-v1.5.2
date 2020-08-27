@@ -103,22 +103,31 @@ if($reset->fetch())
 							      include "src/order_send/part_3.php";
 							     
 
-							     $status_query ="SELECT status from mailing";
+							     $status_query ="SELECT * from mailing";
 								 $sq=$conn->query($status_query);
 								 $main_result =$sq->fetch_array();
 
-							     if(isset($main_result['status']) && $main_result['status']=='ON') 
+							      if($main_result && $main_result['status']=='ON')
 							     {
+							     	   if(isset($main_result['status']) && $main_result['status']=='ON')  
+									     {
 							     	  
 											  $mails->msgHTML($body);
 											  $mails->Subject = 'Incomming order';
 											  $mails->send(); //echo 'error: ' . $mail->ErrorInfo;
-									   
 
+									     }
+							      }
+							      else
+							     {
+							     	
 
-							     	  
+							     	echo '<div class="alert alert-danger" role="alert">
+										    No SMPT details found on sever. Double check the SMTP details make sure you added correct details.
+										 </div>';
+
+									exit();
 							     }
-							      
 								
 						      
 						}
@@ -127,6 +136,8 @@ if($reset->fetch())
 							echo '<div class="alert alert-danger" role="alert">
 								  No orders have been placed - We can only process your order with at least 1 order.
 								 </div>';
+
+								 exit();
 						}
 
 
@@ -135,6 +146,8 @@ if($reset->fetch())
 	 	echo '<div class="alert alert-danger" role="alert">
 			  Reset has been applied by owner...please book a new table by <a href="distroy_session.php">Clicking here</a>.
 			 </div>';
+
+			 exit();
 	 }
 
 
@@ -146,6 +159,8 @@ else
 		echo '<div class="alert alert-danger" role="alert">
 			  CID not found! Reset has been applied by owner...please book a new table by <a href="distroy_session.php">Clicking here</a>.
 			 </div>';
+
+			 exit();
 
 		 
 }

@@ -20,8 +20,17 @@
 
 
 	?>	                     <div class="alert alert-warning" role="alert">
-							  <i class="fas fa-exclamation-triangle" ></i> Warning! Reset has been applied. Please delete the old data in sales tab.
+							
+							  <form action="inc/curd/delete_sales.php" method="post">
+							  	  <i class="fas fa-exclamation-triangle" ></i> Warning! Reset has been applied. Please delete the old data in sales tab.
+										<input name="truncate_sales" type="hidden" value="1">
+										<button  class="btn btn-danger btn-sm" onclick="return confirm('Are u sure you want to empty the whole table?')">
+											<i class="fas fa-trash-alt" ></i> Truncate
+										</button>
+									</form>
 							</div>
+
+
 
 						
 <?php

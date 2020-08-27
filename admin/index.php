@@ -64,7 +64,7 @@ if(isset($_SESSION["admin"])){
                                      
                                     <div class="col-sm-12 controls">
 									  <p id="login_response"  class="pull-left"></p> 
-                                      <button id="login_btn"  class="btn btn-success pull-right">Login</button>
+                                      <button id="login_btn"  class="btn btn-success pull-right"><i class="fas fa-sign-in-alt" ></i> Login</button>
                                       
 
                                     </div>

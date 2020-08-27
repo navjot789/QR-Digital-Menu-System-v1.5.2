@@ -15,7 +15,7 @@ if($toogle)
 {
 	$mails = new PHPMailer;
 	$mails->isSMTP();
-	$mail->SMTPDebug = 0;//https://github.com/PHPMailer/PHPMailer/wiki/SMTP-Debugging
+	$mails->SMTPDebug = 0;//https://github.com/PHPMailer/PHPMailer/wiki/SMTP-Debugging
 	$mails->Host = $toogle['host'];
 	$mails->Port = 587;
 	$mails->SMTPAuth = true;
