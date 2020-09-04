@@ -20,17 +20,16 @@
 <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.colVis.min.js"></script>
 
+
 <script>
 	$(document).ready(function() {
-    var table = $('#example').DataTable( {
-        lengthChange: false,
-        buttons: [ 'copy', 'excel', 'pdf', 'colvis' ],
-		columnDefs: [ { type: 'date', 'targets': [4] } ],
-		order: [[ 4, "desc" ]] 
-    } );
- 
-    table.buttons().container()
-        .appendTo( '#example_wrapper .col-sm-6:eq(0)' );
+
+      $(document).ready(function() {
+        var table = $('#sales').DataTable( {
+             columnDefs: [{ 'targets': 0, type: 'date-euro' }],
+             order: [0, 'desc']
+        } );
+    } );  
 	
      var bill = $('#bill').DataTable( {
         lengthChange: false,
@@ -45,14 +44,7 @@
 
 } );
 	
-$(document).ready(function() {
-    var table = $('#sales').DataTable( {
-        lengthChange: false,  
-		aaSorting: [[3, 'desc']]
-    } );
- 
 
-} );
 	
 </script>
 

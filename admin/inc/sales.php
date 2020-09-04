@@ -116,7 +116,7 @@
 									                 //$time = date('h:i A', strtotime($drow['time_purchase']));
 									                 //echo $date.' '.$time;
 									
-									 			 $date = ucwords(strftime("%a %d %B %Y", strtotime($drow['date_purchase'])));
+									 			  $date = ucwords(strftime("%d/%m/%Y", strtotime($drow['date_purchase'])));
 												 $time = ucwords(strftime("%X", strtotime($drow['time_purchase'])));
 											     echo $date.' '.$time;
 									
