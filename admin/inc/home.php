@@ -63,10 +63,23 @@
                         $stmt->execute();
                         $stmt->store_result(); 
                         $stmt->bind_result($ctime);   
-		                   $stmt->fetch();
-		                   $arr = array('ctime' =>$ctime);
+		                   
+		                   if($stmt->fetch())
+		                   {
+								$arr = array('ctime' =>$ctime);
 
-		                   echo  strftime("%a %d %B %Y %X", date(strtotime($arr['ctime'])));
+								if ($arr['ctime'] !== '0') {
+									echo  strftime("%a %d %B %Y %X", date(strtotime($arr['ctime'])));
+								}
+								else{
+
+									echo "<code>No previous reset found!</code>";
+								}
+
+		                   			
+
+		                   }
+		                   
 
                        	$stmt->close();
 

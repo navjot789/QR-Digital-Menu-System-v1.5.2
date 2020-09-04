@@ -116,16 +116,17 @@ DROP TABLE IF EXISTS `reset_counter`;
 CREATE TABLE IF NOT EXISTS `reset_counter` (
   `rid` int(11) NOT NULL AUTO_INCREMENT,
   `status` int(11) NOT NULL DEFAULT '0',
-  `ctime` varchar(30) NOT NULL,
+  `ctime` varchar(30) DEFAULT '0',
   PRIMARY KEY (`rid`)
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+COMMIT;
 
 --
 -- Dumping data for table `reset_counter`
 --
 
 INSERT INTO `reset_counter` (`rid`, `status`, `ctime`) VALUES
-(5, 1, '15-08-2020 17:05:27');
+(1, 1, '0');
 COMMIT;
 
 --
