@@ -10,6 +10,11 @@
 		  background-color: #e1e1e180 !important;
 		  color: black !important;
 		}
+
+		#img_read
+		{
+			display: none;
+		}
 		
 </style>
 <?php 	
@@ -60,10 +65,11 @@
 	<table id="sales" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
+			    <th>Seen</th>
 			    <th>S No.</th>
 				<th>Item</th>
 				<th>Price</th>
-				<th>Quantity</th>
+				<th>Qty</th>
 				<th>Order on</th>
 				<th>Subtotal</th>
 				<th>Action</th>
@@ -91,7 +97,12 @@
                                 {
                                     ?>
                           <tr  id="<?php echo $drow['purchaseid']; ?>" class="<?php echo ($drow['seen']==1)? "order_read": "order_unread"; ?>">
-                                        <td><?php echo $i; ?></td>
+                                        <td class="">
+                                        	
+                                        	<img id="img_unread<?php echo $drow['purchaseid']; ?>" <?php echo ($drow['seen']==1)? "src='../img/read.png'": "src='../img/bell.png'"; ?>  style="height: 35px;width: 35px;" />
+                                        	
+                                        </td>
+                                         <td><?php echo $i.'.'; ?></td>
                                         <td><?php echo $drow['productname']; ?></td>
                                         <td class="text-right">&euro; <?php echo $drow['price']; ?></td>
                                         <td><?php echo $drow['quantity']; ?></td>
@@ -145,10 +156,11 @@
 		 </tbody>
         <tfoot>
             <tr>
+          		<th>Seen</th>
           		<th>S No.</th>
 				<th>Item</th>
 				<th>Price</th>
-				<th>Quantity</th>
+				<th>Qty</th>
 				<th>Order on</th>
 				<th>Subtotal</th>
 				<th>Action</th>

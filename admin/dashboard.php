@@ -169,6 +169,7 @@ $(function () {
 
 			  var purchase_id = this.id;
 
+
 			  $.ajax({  
 						   url:"inc/curd/order_read_process.php",  
 						   method:"POST",  
@@ -178,6 +179,9 @@ $(function () {
 								 //$('#rep').html(data);
 								 $("#sales tbody #"+purchase_id).addClass("order_read").removeClass("order_unread");
 								//add or remove the read_unread class
+
+								//replacing img source 
+								 $('#img_unread'+purchase_id).attr('src','../img/read.png');
 
 						   }  
 					  });
