@@ -10,11 +10,6 @@
 		  background-color: #e1e1e180 !important;
 		  color: black !important;
 		}
-
-		#img_read
-		{
-			display: none;
-		}
 		
 </style>
 <?php 	
