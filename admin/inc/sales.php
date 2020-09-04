@@ -10,11 +10,6 @@
 		  background-color: #e1e1e180 !important;
 		  color: black !important;
 		}
-
-		#img_read
-		{
-			display: none;
-		}
 		
 </style>
 <?php 	
@@ -66,7 +61,7 @@
         <thead>
             <tr>
 			    <th>Seen</th>
-			    <th>S No.</th>
+			    <th>Tbl</th>
 				<th>Item</th>
 				<th>Price</th>
 				<th>Qty</th>
@@ -91,18 +86,27 @@
 									 product.price
 									  FROM purchase
 									  INNER JOIN product ON purchase.productid=product.productid";
+
                              	$dquery=$conn->query($sql);
+
                              	$i=1;
                                 while($drow=$dquery->fetch_array())
                                 {
+                                          
+ 										$sql_lite = "SELECT table_no FROM guest WHERE guest_code='".$drow['guest_code']."'";
+                         			    $lite_q = $conn->query($sql_lite); 
+                                        $field=$lite_q->fetch_array();
                                     ?>
                           <tr  id="<?php echo $drow['purchaseid']; ?>" class="<?php echo ($drow['seen']==1)? "order_read": "order_unread"; ?>">
+
                                         <td class="">
                                         	
                                         	<img id="img_unread<?php echo $drow['purchaseid']; ?>" <?php echo ($drow['seen']==1)? "src='../img/read.png'": "src='../img/bell.png'"; ?>  style="height: 35px;width: 35px;" />
                                         	
                                         </td>
-                                         <td><?php echo $i.'.'; ?></td>
+
+                                        <td>#<?php echo $field['table_no']; ?></td>
+
                                         <td><?php echo $drow['productname']; ?></td>
                                         <td class="text-right">&euro; <?php echo $drow['price']; ?></td>
                                         <td><?php echo $drow['quantity']; ?></td>
@@ -149,7 +153,7 @@
                         </tr>
                                     <?php
 
-                                    $i++;
+                                   
                                     
                                 }
                             ?>
@@ -157,7 +161,7 @@
         <tfoot>
             <tr>
           		<th>Seen</th>
-          		<th>S No.</th>
+          		<th>Tbl</th>
 				<th>Item</th>
 				<th>Price</th>
 				<th>Qty</th>

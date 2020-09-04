@@ -185,12 +185,12 @@ if(!empty($_GET['p_id']))
 							{
 						?>
 						<center>
-							<img id="item-display" class= "product img-responsive img-thumbnail" src=" https://denieuwehoreca.nl/smaak/upload/noimage.jpg"  alt="">
+							<img id="item-display" class= "product img-responsive img-thumbnail" src="upload/noimage.jpg" style="min-width: 100%;min-height: 100%;">
 						</center>
 						
 						<?php }else{?>
 						<center>
-							<img id="item-display" class= "product img-responsive img-thumbnail" src="<?php echo 'upload/'.$row['photo'];?>"  alt="">
+							<img id="item-display" class= "product img-responsive img-thumbnail" src="<?php echo 'upload/'.$row['photo'];?>" style="min-width: 100%;min-height: 100%;">
 						</center>
 						<?php }?>
 						

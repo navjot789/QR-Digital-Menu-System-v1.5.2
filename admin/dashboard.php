@@ -18,7 +18,7 @@ else
 ?>
 <body >
 <?php include "inc/navbar.php";?>
-	<div class="container-fluid" style="max-width: 1140px;margin: 0 auto;">
+	<div class="container-fluid" style="max-width: 1200px;margin: 0 auto;">
 	  		
 
   	<!-- Navbar -->
@@ -169,7 +169,6 @@ $(function () {
 
 			  var purchase_id = this.id;
 
-
 			  $.ajax({  
 						   url:"inc/curd/order_read_process.php",  
 						   method:"POST",  
@@ -180,6 +179,7 @@ $(function () {
 								 $("#sales tbody #"+purchase_id).addClass("order_read").removeClass("order_unread");
 								//add or remove the read_unread class
 
+								
 								//replacing img source 
 								 $('#img_unread'+purchase_id).attr('src','../img/read.png');
 
