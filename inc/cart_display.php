@@ -4,8 +4,8 @@
  <br/>
 
 		<div class="row">
-			<div class="col-md-6"></div>
-				<div class="col-md-6">
+			
+				<div class="col-md-12">
 					<a id="cart-popover" class="btn pull-right" data-placement="bottom" title="Shopping Cart" >
 																													 
 		              <span class="glyphicon glyphicon-shopping-cart"></span>

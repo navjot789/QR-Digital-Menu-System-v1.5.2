@@ -9,15 +9,20 @@
 	
 	$res = $conn->query($sql);
 
-	 if($res)
+	  if($res)
 	 {
-	 	$deleted = unlink('../../../upload/'.$pic);
-	 	if($deleted)
-	 	{
-	 		header('location:../../dashboard.php?page=2');
-	 	}
 	 	
-
+		  if (file_exists('../../../upload/'.$pic)) {
+			$deleted = unlink('../../../upload/'.$pic);
+			header('location:../../dashboard.php?page=2'); 
+		    exit();
+		  }
+		 else
+		 {
+			 header('location:../../dashboard.php?page=2'); 
+			 exit();
+		 }
+		 
 	 }
 
 
